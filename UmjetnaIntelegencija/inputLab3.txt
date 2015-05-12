@@ -1,0 +1,127 @@
+Nadklasa = Cestovni, Terenac
+Klasa = Cestovni_mali, Cestovni_veliki,Cestovni_srednji, SUV_mali, SUV_veliki
+Velicina = mali, srednji, veliki
+IzvanCeste = da, ne
+Sportski = da, ne
+Udobnost = visoka, srednja, niska
+Snaga = visoka, srednja, niska
+Tradicija = duga, srednja, kratka
+PogonNaSva4 = da, ne
+Dugotrajnost = da, ne
+Dijelovi = ima, nema
+Garancija = duga, kratka
+Cijena = povoljan, srednji, skup
+Drzava = Japan, Koreja, Rumunjska, Njemacka, Italija, Francuska
+Pouzdanost = da, ne
+Marka = Toyota, Volkswagen, Peugeot, Citroen, Mercedes, BMW, Opel, Alfa, Dacia, Kia, Mazda, Nissan, Fiat
+Model = Aygo, RAV4, LandCruiser, Up, 107, 308, C1, C2, C_klasa, BMW_1, BMW_3, Corsa, Astra, Insignia, A_klasa, Giulietta, Logan, Sandero, Proceed, Rio, Mazda_3, Mazda_6, BMW_5, BMW_X5, BMW_1, Mito, Bravo, Punto, C5, Avensis, Corolla, Yaris, Golf, Passat, Juke
+1 IF IzvanCeste = da
+THEN Nadklasa = Terenac
+2 IF IzvanCeste = ne
+THEN Nadklasa = Cestovni
+3 IF Nadklasa = Cestovni & Velicina = veliki
+THEN Klasa = Cestovni_veliki
+4 IF Nadklasa = Cestovni & Velicina = mali
+THEN Klasa = Cestovni_mali
+5 IF Nadklasa = Cestovni & Velicina = srednji
+THEN Klasa = Cestovni_srednji
+6 IF Nadklasa = Terenac & Velicina = mali
+THEN Klasa = SUV_mali
+7 IF Nadklasa = Terenac & PogonNaSva4 = da & Velicina = veliki
+THEN Klasa = SUV_veliki
+8 IF Drzava = Japan & Pouzdanost = da &
+Dugotrajnost = da & Cijena = srednji
+THEN Marka = Toyota
+9 IF Drzava = Japan & Pouzdanost = da & Cijena = skup
+THEN Marka = Mazda
+10 IF Drzava = Japan & Tradicija = kratka & Dijelovi = nema
+THEN Marka = Nissan
+11 IF Drzava = Njemacka & Tradicija = duga &
+Dijelovi = ima & Cijena = srednja
+THEN Marka = VolksWagen
+12 IF Drzava = Njemacka & Tradicija = srednja & Udobnost = visoka
+THEN Marka = Opel
+13 IF Drzava = Njemacka & Tradicija = duga & Sportski = da &
+Snaga = visoka & Cijena = skup
+THEN Marka = BMW
+14 IF Drzava = Njemacka & Tradicija = duga &
+Udobnost = visoka & Dijelovi = ima & Cijena = skup
+THEN Marka = Mercedes
+16 IF Drzava = Francuska & Udobnost = visoka & Dugotrajnost = ne
+THEN Marka = Citroen
+17 IF Drzava = Francuska & Udobnost = visoka & Snaga = srednja & Tradicija = srednja
+THEN Marka = Peugeot
+19 IF Drzava = Italija & Cijena = srednji & Sportski = da
+THEN Marka = Alfa
+20 IF Drzava = Italija & Cijena = povoljan & Dijelovi = ima
+THEN Marka = Fiat
+21 IF Drzava = Italija & Cijena = povoljan & Dijelovi = ima
+THEN Marka = Fiat
+22 IF Drzava = Koreja & Garancija = duga
+THEN Marka = Kia
+23 IF Drzava = Rumunjska & Dugotrajnost = ne & Cijena = povoljan & Garancija = kratka
+THEN Marka = Dacia
+24 IF Marka = Toyota & Klasa = Cestovni_mali
+THEN Model = Aygo
+25 IF Marka = Toyota & Klasa = Cestovni_srednji
+THEN Model = Corolla
+26 IF Marka = Toyota & Klasa = Cestovni_veliki
+THEN Model = Avensis
+27 IF Marka = Toyota & Klasa = SUV_mali
+THEN Model = RAV4
+28 IF Marka = Toyota & Klasa = SUV_veliki
+THEN Model = LandCruiser
+29 IF Marka = Mazda & Klasa = Cestovni_srednji
+THEN Model = Mazda_3
+30 IF Marka = Mazda & Klasa = Cestovni_veliki
+THEN Model = Mazda_6
+31 IF Marka = Nissan & Klasa = SUV_mali & PogonNaSva4 = da
+THEN Model = Juke
+32 IF Marka = VolksWagen & Klasa = Cestovni_srednji
+THEN Model = Golf
+33 IF Marka = VolksWagen & Klasa = Cestovni_mali
+THEN Model = Up
+34 IF Marka = VolksWagen & Klasa = Cestovni_veliki
+THEN Model = Passat
+35 IF Marka = Opel & Klasa = Cestovni_srednji
+THEN Model = Astra
+36 IF Marka = Opel & Klasa = Cestovni_mali
+THEN Model = Corsa
+37 IF Marka = Opel & Klasa = Cestovni_veliki
+THEN Model = Insignia
+38 IF Marka = Mercedes & Klasa = Cestovni_mali
+THEN Model = A_klasa
+39 IF Marka = Mercedes & Klasa = Cestovni_srednji
+THEN Model = C_klasa
+40 IF Marka = BMW & Klasa = Cestovni_mali
+THEN Model = BMW_1
+41 IF Marka = BMW & Klasa = Cestovni_veliki
+THEN Model = BMW_5
+42 IF Marka = Mercedes & Klasa = SUV_veliki
+THEN Model = BMW_X5
+43 IF Marka = Fiat & Klasa = Cestovni_srednji
+THEN Model = Bravo
+44 IF Marka = Fiat & Klasa = Cestovni_mali
+THEN Model = Punto
+45 IF Marka = Alfa & Klasa = Cestovni_srednji
+THEN Model = Giulietta
+46 IF Marka = Fiat & Klasa = Cestovni_mali
+THEN Model = Mito
+47 IF Marka = Citroen & Klasa = Cestovni_mali & Sportski = da
+THEN Model = C2
+48 IF Marka = Citroen & Klasa = Cestovni_mali & Sportski = ne
+THEN Model = C1
+49 IF Marka = Citroen & Klasa = Cestovni_veliki
+THEN Model = C5
+50 IF Marka = Dacia & Klasa = Cestovni_srednji
+THEN Model = Logan
+51 IF Marka = Dacia & Klasa = SUV_mali
+THEN Model = Sandero
+52 IF Marka = Peugeot & Klasa = Cestovni_srednji
+THEN Model = 308
+53 IF Marka = Peugeot & Klasa = Cestovni_mali
+THEN Model = 107
+54 IF Marka = Kia & Klasa = Cestovni_srednji & Sportski = da
+THEN Model = Proceed
+55 IF Marka = Kia & Klasa = Cestovni_srednji & Sportski = ne
+THEN Model = Rio
